@@ -11,3 +11,4 @@ This file records meaningful project actions in order. Secrets and credential va
 - Added MySQL schema for tasks, campaigns, content items, and events in `docs/database.sql`.
 - Added the initial database connection layer and Tasks API: `GET /api/tasks`, `POST /api/tasks`, and `PATCH /api/tasks/:id`.
 - Kept the frontend static-hosting compatible by bundling CSS into the JavaScript build.
+- Checked the project and temporary Hostinger site for an existing database configuration; none is present yet, so no database schema was applied.
