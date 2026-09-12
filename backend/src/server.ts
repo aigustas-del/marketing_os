@@ -1,0 +1,12 @@
+import 'dotenv/config';
+import express, { type ErrorRequestHandler } from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import { tasksRouter } from './api/tasks.js';
+const app=express(); const port=Number(process.env.PORT||4000);
+app.use(cors({origin:process.env.FRONTEND_URL||'http://localhost:5173'})); app.use(express.json()); app.use(morgan('dev'));
+app.get('/api/health',(_req,res)=>res.json({status:'ok',service:'marketing-os-api'}));
+app.get('/api/version',(_req,res)=>res.json({version:'0.1.0'}));
+app.use('/api/tasks', tasksRouter);
+const errors:ErrorRequestHandler=(err,_req,res,_next)=>{console.error(err);res.status(500).json({error:'Internal server error'})}; app.use(errors);
+app.listen(port,()=>console.log(`Marketing OS API listening on http://localhost:${port}`));

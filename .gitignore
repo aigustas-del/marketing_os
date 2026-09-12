@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Local credentials and private connection material
+credentials/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.secret
+*credentials*.json
+*service-account*.json
